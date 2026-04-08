@@ -7,25 +7,47 @@
     <title>Organigrama Institucional | SLEP Costa Central</title>
     <meta name="description" content="Organigrama del Servicio Local de Educación Pública Costa Central (SLEP Costa Central), que atiende establecimientos educacionales de Concón, Puchuncaví, Quintero y Viña del Mar.">
 
+    <!-- Favicon: mini logo con el color mark de Costa Central -->
     <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='22' r='10' fill='%233498db'/><path d='M6 40 Q16 32 26 40 T46 40 T66 40' stroke='%232c3e50' stroke-width='4' fill='none' stroke-linecap='round'/><path d='M6 52 Q16 44 26 52 T46 52 T66 52' stroke='%232c3e50' stroke-width='4' fill='none' stroke-linecap='round' opacity='0.5'/></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><path d='M32 6a26 26 0 1 0 18 44l-8-8a14 14 0 1 1 0-20l8-8A26 26 0 0 0 32 6z' fill='%23282828'/><path d='M32 6a26 26 0 0 0-22 12l9 6a14 14 0 0 1 13-6z' fill='%2390d039'/><path d='M50 18l-8 8a14 14 0 0 1 2 4l11-4a26 26 0 0 0-5-8z' fill='%23f8d63c'/><path d='M55 32a26 26 0 0 0-1-6l-11 4a14 14 0 0 1 0 4l11 4a26 26 0 0 0 1-6z' fill='%231f84ec'/><path d='M10 18a26 26 0 0 0-4 14h14a14 14 0 0 1 4-10z' fill='%23ff3c4c'/><path d='M6 32a26 26 0 0 0 4 14l11-6a14 14 0 0 1-3-8z' fill='%23ff798a'/></svg>">
+
+    <!-- Nunito: alternativa libre a MuseoSans/gobCL, geométrica y amigable -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary-navy: #2c3e50;
-            --deep-navy: #1a2734;
-            --accent-blue: #3498db;
-            --soft-blue: #5dade2;
-            --text-gray: #546e7a;
-            --muted-gray: #90a4ae;
-            --light-border: #e8edf3;
-            --bg-soft: #f8faff;
-            --bg-canvas: #fbfcfe;
-            --white: #ffffff;
-            --shadow-sm: 0 2px 8px rgba(44, 62, 80, 0.04);
-            --shadow-md: 0 8px 24px rgba(44, 62, 80, 0.08);
-            --shadow-lg: 0 20px 50px rgba(44, 62, 80, 0.12);
-            --main-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            /* === PALETA OFICIAL SLEP / DEP === */
+            --brand-red:       #ff3c4c;
+            --brand-green:     #90d039;
+            --brand-yellow:    #f8d63c;
+            --brand-blue:      #1f84ec;
+            --brand-sky:       #3abff0;
+            --brand-pink:      #ff798a;
+            --brand-dark:      #282828;
+
+            /* === ALIAS FUNCIONALES === */
+            --text-primary:    #282828;
+            --text-secondary:  #5a5a5a;
+            --text-muted:      #9a9a9a;
+            --accent:          var(--brand-blue);
+            --accent-hover:    #0d6cc7;
+            --surface:         #ffffff;
+            --surface-alt:     #f6f7fa;
+            --surface-soft:    #fbfcfd;
+            --border:          #ececec;
+            --border-strong:   #d8d8d8;
+
+            --shadow-sm: 0 1px 2px rgba(40, 40, 40, 0.04), 0 2px 8px rgba(40, 40, 40, 0.04);
+            --shadow-md: 0 4px 12px rgba(40, 40, 40, 0.06), 0 12px 32px rgba(40, 40, 40, 0.06);
+            --shadow-lg: 0 12px 32px rgba(40, 40, 40, 0.08), 0 24px 60px rgba(40, 40, 40, 0.10);
+
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+
+            --font: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
         }
 
         * { box-sizing: border-box; }
@@ -33,252 +55,233 @@
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: var(--main-font);
+            font-family: var(--font);
             margin: 0;
-            background: var(--bg-canvas);
-            color: var(--primary-navy);
+            background: var(--surface);
+            color: var(--text-primary);
             -webkit-font-smoothing: antialiased;
             line-height: 1.6;
+            font-weight: 500;
         }
 
-        /* --- TOP BAR --- */
+        a { color: inherit; }
+
+        /* =========================================================
+           TOP BAR
+           ========================================================= */
         .topbar {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: saturate(180%) blur(12px);
-            -webkit-backdrop-filter: saturate(180%) blur(12px);
-            border-bottom: 1px solid var(--light-border);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: saturate(180%) blur(14px);
+            -webkit-backdrop-filter: saturate(180%) blur(14px);
+            border-bottom: 1px solid var(--border);
         }
         .topbar-inner {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
-            padding: 16px 40px;
+            padding: 18px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 24px;
         }
+
         .brand {
             display: flex;
             align-items: center;
             gap: 14px;
             text-decoration: none;
-            color: var(--primary-navy);
+            color: var(--text-primary);
         }
-        .brand-logo {
-            width: 42px;
-            height: 42px;
+        .brand-mark {
+            width: 44px;
+            height: 44px;
             flex-shrink: 0;
         }
         .brand-text {
             display: flex;
             flex-direction: column;
-            line-height: 1.2;
+            line-height: 1.05;
+        }
+        .brand-service {
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
         }
         .brand-name {
+            font-size: 1.15rem;
+            font-weight: 900;
+            letter-spacing: -0.4px;
+            color: var(--text-primary);
+            margin-top: 3px;
+        }
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+        .hero {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 90px 40px 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Logo grande tipo wordmark, al estilo del oficial */
+        .wordmark {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 34px;
+        }
+        .wordmark-service {
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+        .wordmark-main {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .wordmark-mark {
+            width: 74px;
+            height: 74px;
+            flex-shrink: 0;
+        }
+        .wordmark-title {
+            font-size: clamp(2rem, 5.5vw, 3.4rem);
+            font-weight: 900;
+            color: var(--text-primary);
+            letter-spacing: -1.5px;
+            line-height: 0.95;
+            text-align: left;
+        }
+        .wordmark-title .line { display: block; }
+        .wordmark-comunas {
+            margin-top: 14px;
             font-size: 0.95rem;
             font-weight: 800;
+            color: var(--text-primary);
             letter-spacing: -0.2px;
         }
-        .brand-sub {
-            font-size: 0.72rem;
-            color: var(--text-gray);
+        .wordmark-comunas .sep {
+            color: var(--border-strong);
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-        }
-        .topbar-links {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-        .topbar-link {
-            text-decoration: none;
-            color: var(--text-gray);
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 10px 16px;
-            border-radius: 8px;
-            transition: 0.25s;
-        }
-        .topbar-link:hover {
-            color: var(--accent-blue);
-            background: var(--bg-soft);
+            margin: 0 6px;
         }
 
-        /* --- HERO --- */
-        .hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 40px 40px;
-            text-align: center;
-        }
-        .eyebrow {
-            display: inline-block;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.6px;
-            color: var(--accent-blue);
-            font-weight: 700;
-            padding: 6px 14px;
-            background: var(--bg-soft);
-            border-radius: 100px;
-            margin-bottom: 24px;
-        }
-        h1 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
+        .page-title {
+            margin-top: 48px;
+            font-size: clamp(1.4rem, 2.6vw, 1.9rem);
             font-weight: 800;
-            margin: 0 0 16px;
-            letter-spacing: -1px;
-            line-height: 1.1;
-            color: var(--deep-navy);
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
         }
-        .hero-desc {
-            max-width: 680px;
-            margin: 0 auto 36px;
-            color: var(--text-gray);
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-        .comunas {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 28px;
-        }
-        .comuna-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 18px;
-            background: var(--white);
-            border: 1px solid var(--light-border);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--primary-navy);
-            box-shadow: var(--shadow-sm);
-            transition: 0.3s;
-        }
-        .comuna-chip:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent-blue);
-            box-shadow: var(--shadow-md);
-        }
-        .comuna-chip::before {
-            content: "";
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--accent-blue);
-        }
-
-        /* --- ORG CHART CANVAS --- */
-        .chart-wrap {
-            max-width: 1200px;
-            margin: 60px auto 0;
-            padding: 0 40px 80px;
-        }
-
-        .legend {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-bottom: 50px;
-            font-size: 0.82rem;
-            color: var(--text-gray);
-        }
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .legend-swatch {
+        .page-title .accent-underline {
             display: inline-block;
-            width: 28px;
-            height: 10px;
-            border-radius: 3px;
+            position: relative;
         }
-        .legend-swatch.solid { background: var(--primary-navy); }
-        .legend-swatch.accent { background: var(--accent-blue); }
-        .legend-swatch.dashed {
-            background: transparent;
-            border-top: 2px dashed var(--muted-gray);
-            height: 2px;
-            align-self: center;
+        .page-title .accent-underline::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -6px;
+            height: 6px;
+            background: var(--brand-blue);
+            border-radius: 4px;
+        }
+        .page-desc {
+            max-width: 700px;
+            margin: 18px auto 0;
+            color: var(--text-secondary);
+            font-size: 1.02rem;
+            font-weight: 500;
+            line-height: 1.75;
         }
 
-        /* Structure */
+        /* =========================================================
+           ORG CHART
+           ========================================================= */
+        .chart-wrap {
+            max-width: 1240px;
+            margin: 60px auto 0;
+            padding: 0 40px 100px;
+        }
+
         .org-chart {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0;
-            position: relative;
         }
 
-        /* Nivel 1: Comité Directivo Local */
+        /* --- Órganos deliberativos --- */
         .level-advisory {
             display: flex;
             justify-content: center;
-            gap: 24px;
-            margin-bottom: 14px;
+            gap: 22px;
+            margin-bottom: 16px;
             flex-wrap: wrap;
         }
-
         .advisory-card {
-            background: var(--white);
-            border: 2px dashed var(--muted-gray);
-            border-radius: 12px;
-            padding: 16px 22px;
-            max-width: 260px;
+            background: var(--surface);
+            border: 2px dashed var(--border-strong);
+            border-radius: var(--radius-md);
+            padding: 16px 24px;
+            max-width: 270px;
             text-align: center;
             transition: 0.3s;
         }
         .advisory-card:hover {
-            border-color: var(--accent-blue);
+            border-color: var(--brand-blue);
             transform: translateY(-2px);
         }
         .advisory-card .role-tag {
-            font-size: 0.65rem;
+            font-size: 0.62rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--muted-gray);
-            font-weight: 700;
-            margin-bottom: 4px;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            font-weight: 800;
+            margin-bottom: 6px;
         }
         .advisory-card .role-name {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--primary-navy);
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.2px;
         }
 
-        /* Connectors */
+        /* --- Connectors --- */
         .connector-v {
             width: 2px;
-            height: 36px;
-            background: var(--light-border);
+            height: 40px;
+            background: var(--border-strong);
         }
         .connector-v.dashed {
             background: transparent;
-            border-left: 2px dashed var(--muted-gray);
+            border-left: 2.5px dashed var(--text-muted);
             width: 0;
         }
 
-        /* Director card */
+        /* --- Director card --- */
         .director-card {
             position: relative;
-            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--deep-navy) 100%);
-            color: var(--white);
-            padding: 34px 48px;
-            border-radius: 18px;
+            background: var(--brand-dark);
+            color: #fff;
+            padding: 38px 54px;
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-lg);
             text-align: center;
-            max-width: 480px;
+            max-width: 520px;
             transition: 0.35s;
             overflow: hidden;
         }
@@ -286,52 +289,46 @@
             content: "";
             position: absolute;
             top: 0; left: 0; right: 0;
-            height: 4px;
-            background: var(--accent-blue);
+            height: 5px;
+            background: linear-gradient(90deg,
+                var(--brand-red) 0%,
+                var(--brand-pink) 17%,
+                var(--brand-yellow) 34%,
+                var(--brand-green) 51%,
+                var(--brand-sky) 68%,
+                var(--brand-blue) 100%);
         }
         .director-card:hover { transform: translateY(-4px); }
         .director-card .role-tag {
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--soft-blue);
-            font-weight: 700;
+            letter-spacing: 2.4px;
+            color: var(--brand-sky);
+            font-weight: 800;
             margin-bottom: 10px;
         }
         .director-card .role-title {
-            font-size: 1.35rem;
-            font-weight: 800;
+            font-size: 1.5rem;
+            font-weight: 900;
             margin: 0 0 6px;
+            letter-spacing: -0.6px;
         }
         .director-card .role-name {
-            font-size: 1rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.82);
         }
 
-        /* Horizontal distribution bus for subdirecciones */
-        .bus-wrap {
-            position: relative;
-            width: 100%;
-            max-width: 1100px;
-            margin-top: 0;
-        }
-        .bus-line {
-            height: 2px;
-            background: var(--light-border);
-            margin: 0 auto;
-            width: calc(100% - 160px);
-            position: relative;
-        }
-
-        /* Subdirecciones grid */
+        /* --- Subdirecciones grid --- */
         .subdir-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
+            gap: 22px;
             margin-top: 0;
-            padding-top: 36px;
+            padding-top: 40px;
             position: relative;
+            width: 100%;
+            max-width: 1160px;
         }
         .subdir-grid::before {
             content: "";
@@ -340,86 +337,220 @@
             left: 10%;
             right: 10%;
             height: 2px;
-            background: var(--light-border);
+            background: var(--border-strong);
         }
+
         .subdir-card {
             position: relative;
-            background: var(--white);
-            border: 1px solid var(--light-border);
-            border-radius: 14px;
-            padding: 26px 20px 22px;
-            text-align: left;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 28px 22px 24px;
             box-shadow: var(--shadow-sm);
             transition: 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
-            cursor: default;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
+            overflow: hidden;
+            --card-accent: var(--brand-blue);
         }
         .subdir-card::before {
             content: "";
             position: absolute;
-            top: -36px;
+            top: -40px;
             left: 50%;
             width: 2px;
-            height: 36px;
-            background: var(--light-border);
+            height: 40px;
+            background: var(--border-strong);
             transform: translateX(-50%);
+        }
+        .subdir-card::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--card-accent);
+            transform: scaleX(0.35);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
         }
         .subdir-card:hover {
             transform: translateY(-6px);
-            border-color: var(--accent-blue);
+            border-color: var(--card-accent);
             box-shadow: var(--shadow-md);
         }
+        .subdir-card:hover::after { transform: scaleX(1); }
         .subdir-card:hover .subdir-icon {
-            background: var(--accent-blue);
-            color: var(--white);
+            background: var(--card-accent);
+            color: #fff;
         }
+
+        /* accents por tarjeta usando TODA la paleta oficial */
+        .subdir-card.c-blue   { --card-accent: var(--brand-blue); }
+        .subdir-card.c-green  { --card-accent: var(--brand-green); }
+        .subdir-card.c-yellow { --card-accent: var(--brand-yellow); }
+        .subdir-card.c-pink   { --card-accent: var(--brand-pink); }
+        .subdir-card.c-red    { --card-accent: var(--brand-red); }
+
         .subdir-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
-            background: var(--bg-soft);
-            color: var(--accent-blue);
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: var(--surface-alt);
+            color: var(--card-accent);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: 0.3s;
         }
         .subdir-tag {
-            font-size: 0.65rem;
+            font-size: 0.62rem;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--muted-gray);
-            font-weight: 700;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            font-weight: 800;
         }
         .subdir-title {
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: var(--primary-navy);
-            line-height: 1.3;
+            font-size: 0.98rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            line-height: 1.25;
+            letter-spacing: -0.3px;
             margin: 0;
         }
         .subdir-desc {
-            font-size: 0.78rem;
-            color: var(--text-gray);
-            line-height: 1.55;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-weight: 500;
             margin: 4px 0 0;
         }
 
-        /* --- FOOTER --- */
-        footer {
-            border-top: 1px solid var(--light-border);
-            padding: 40px;
-            text-align: center;
-            color: var(--muted-gray);
-            font-size: 0.82rem;
-            background: var(--white);
+        /* =========================================================
+           TERRITORY STRIP
+           ========================================================= */
+        .territory {
+            background: var(--surface-alt);
+            padding: 54px 40px;
+            border-top: 1px solid var(--border);
         }
-        footer a { color: var(--accent-blue); text-decoration: none; font-weight: 600; }
-        footer a:hover { text-decoration: underline; }
+        .territory-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .territory-eyebrow {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .territory-title {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            margin: 0 0 26px;
+        }
+        .comunas-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .comuna-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 22px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+        }
+        .comuna-chip::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .comuna-chip.c1::before { background: var(--brand-red); }
+        .comuna-chip.c2::before { background: var(--brand-yellow); }
+        .comuna-chip.c3::before { background: var(--brand-green); }
+        .comuna-chip.c4::before { background: var(--brand-blue); }
+        .comuna-chip:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--text-primary);
+        }
 
-        /* --- RESPONSIVE --- */
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+        footer {
+            background: var(--brand-dark);
+            color: rgba(255, 255, 255, 0.75);
+            padding: 48px 40px 40px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        footer .foot-mark {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        footer .foot-mark svg { width: 36px; height: 36px; }
+        footer .foot-mark-text {
+            text-align: left;
+            line-height: 1.1;
+        }
+        footer .foot-mark-top {
+            font-size: 0.55rem;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.55);
+        }
+        footer .foot-mark-bot {
+            font-size: 0.92rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -0.2px;
+            margin-top: 2px;
+        }
+        footer p { margin: 8px 0; }
+        footer a {
+            color: var(--brand-sky);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        footer a:hover { text-decoration: underline; }
+        footer .foot-rainbow {
+            height: 4px;
+            background: linear-gradient(90deg,
+                var(--brand-red) 0%,
+                var(--brand-pink) 17%,
+                var(--brand-yellow) 34%,
+                var(--brand-green) 51%,
+                var(--brand-sky) 68%,
+                var(--brand-blue) 100%);
+            margin-bottom: 40px;
+            margin-left: -40px;
+            margin-right: -40px;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
         @media (max-width: 1000px) {
             .subdir-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -427,17 +558,22 @@
             }
             .subdir-grid::before { display: none; }
             .subdir-card::before { display: none; }
-            .bus-line { display: none; }
         }
-        @media (max-width: 640px) {
+        @media (max-width: 720px) {
             .topbar-inner { padding: 14px 20px; }
-            .topbar-links { display: none; }
-            .hero { padding: 50px 20px 30px; }
-            .chart-wrap { padding: 0 20px 60px; }
+            .hero { padding: 54px 20px 30px; }
+            .wordmark-main { flex-direction: column; gap: 10px; }
+            .wordmark-mark { width: 60px; height: 60px; }
+            .wordmark-title { text-align: center; }
+            .wordmark-comunas { font-size: 0.82rem; }
+            .chart-wrap { padding: 0 20px 70px; }
             .subdir-grid { grid-template-columns: 1fr; }
-            .director-card { padding: 28px 30px; }
-            .brand-name { font-size: 0.85rem; }
-            .brand-sub { font-size: 0.65rem; }
+            .director-card { padding: 30px 32px; max-width: 100%; }
+            .territory { padding: 44px 20px; }
+            footer { padding: 44px 20px 32px; }
+            footer .foot-rainbow { margin-left: -20px; margin-right: -20px; }
+            .brand-name { font-size: 0.98rem; }
+            .brand-service { font-size: 0.56rem; }
         }
     </style>
 </head>
@@ -448,51 +584,64 @@
     <header class="topbar">
         <div class="topbar-inner">
             <a href="#" class="brand" aria-label="SLEP Costa Central - Inicio">
-                <!-- Logo SVG institucional. Reemplazar por el archivo oficial cuando esté disponible. -->
-                <svg class="brand-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <circle cx="32" cy="20" r="10" fill="#3498db"/>
-                    <path d="M4 40 Q16 32 28 40 T52 40 T76 40" stroke="#2c3e50" stroke-width="4" fill="none" stroke-linecap="round"/>
-                    <path d="M4 50 Q16 42 28 50 T52 50 T76 50" stroke="#2c3e50" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.55"/>
-                    <path d="M4 60 Q16 52 28 60 T52 60 T76 60" stroke="#2c3e50" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.28"/>
+                <!-- Color mark (C segmentada) - versión reducida para topbar -->
+                <svg class="brand-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <!-- fondo del anillo en dark -->
+                    <path d="M50 8a42 42 0 1 0 29 72l-14-14a22 22 0 1 1 0-32l14-14A42 42 0 0 0 50 8z" fill="#282828"/>
+                    <!-- segmentos de color sobre el anillo -->
+                    <path d="M50 8A42 42 0 0 0 13 28l18 11a22 22 0 0 1 19-11z" fill="#90d039"/>
+                    <path d="M79 22L65 36a22 22 0 0 1 5 8l19-6a42 42 0 0 0-10-16z" fill="#f8d63c"/>
+                    <path d="M89 38l-19 6a22 22 0 0 1 0 12l19 6a42 42 0 0 0 0-24z" fill="#1f84ec"/>
+                    <path d="M13 28a42 42 0 0 0-5 22h22a22 22 0 0 1 1-11z" fill="#ff3c4c"/>
+                    <path d="M8 50a42 42 0 0 0 5 22l18-11a22 22 0 0 1-1-11z" fill="#ff798a"/>
+                    <!-- centro blanco para dar efecto de C -->
+                    <circle cx="50" cy="50" r="14" fill="#ffffff"/>
                 </svg>
                 <span class="brand-text">
-                    <span class="brand-name">SLEP Costa Central</span>
-                    <span class="brand-sub">Servicio Local de Educación Pública</span>
+                    <span class="brand-service">Servicio Local de Educación Pública</span>
+                    <span class="brand-name">Costa Central</span>
                 </span>
             </a>
-            <nav class="topbar-links" aria-label="Navegación principal">
-                <a class="topbar-link" href="#organigrama">Organigrama</a>
-                <a class="topbar-link" href="#comunas">Comunas</a>
-            </nav>
         </div>
     </header>
 
-    <!-- ============== HERO ============== -->
+    <!-- ============== HERO CON WORDMARK ============== -->
     <section class="hero">
-        <span class="eyebrow">Estructura institucional</span>
-        <h1>Organigrama del SLEP Costa Central</h1>
-        <p class="hero-desc">
-            El Servicio Local de Educación Pública Costa Central administra los establecimientos
-            educacionales públicos —jardines infantiles, escuelas y liceos— de cuatro comunas de la
-            región de Valparaíso, articulando su quehacer en torno a una dirección ejecutiva y cinco
-            subdirecciones especializadas.
-        </p>
-        <div class="comunas" id="comunas" aria-label="Comunas que atiende">
-            <span class="comuna-chip">Concón</span>
-            <span class="comuna-chip">Puchuncaví</span>
-            <span class="comuna-chip">Quintero</span>
-            <span class="comuna-chip">Viña del Mar</span>
+        <div class="wordmark">
+            <div class="wordmark-service">Servicio Local de Educación Pública</div>
+            <div class="wordmark-main">
+                <!-- Color mark (C segmentada) - versión grande para el hero -->
+                <svg class="wordmark-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M50 8a42 42 0 1 0 29 72l-14-14a22 22 0 1 1 0-32l14-14A42 42 0 0 0 50 8z" fill="#282828"/>
+                    <path d="M50 8A42 42 0 0 0 13 28l18 11a22 22 0 0 1 19-11z" fill="#90d039"/>
+                    <path d="M79 22L65 36a22 22 0 0 1 5 8l19-6a42 42 0 0 0-10-16z" fill="#f8d63c"/>
+                    <path d="M89 38l-19 6a22 22 0 0 1 0 12l19 6a42 42 0 0 0 0-24z" fill="#1f84ec"/>
+                    <path d="M13 28a42 42 0 0 0-5 22h22a22 22 0 0 1 1-11z" fill="#ff3c4c"/>
+                    <path d="M8 50a42 42 0 0 0 5 22l18-11a22 22 0 0 1-1-11z" fill="#ff798a"/>
+                    <circle cx="50" cy="50" r="14" fill="#ffffff"/>
+                </svg>
+                <span class="wordmark-title">
+                    <span class="line">COSTA</span>
+                    <span class="line">CENTRAL</span>
+                </span>
+            </div>
+            <div class="wordmark-comunas">
+                Concón <span class="sep">|</span> Puchuncaví <span class="sep">|</span> Quintero <span class="sep">|</span> Viña del Mar
+            </div>
         </div>
+
+        <h1 class="page-title">
+            Organigrama <span class="accent-underline">institucional</span>
+        </h1>
+        <p class="page-desc">
+            Estructura orgánica del Servicio Local de Educación Pública Costa Central,
+            que administra los establecimientos educacionales públicos de las comunas
+            de Concón, Puchuncaví, Quintero y Viña del Mar.
+        </p>
     </section>
 
     <!-- ============== ORG CHART ============== -->
     <section class="chart-wrap" id="organigrama">
-
-        <div class="legend" aria-label="Leyenda del organigrama">
-            <div class="legend-item"><span class="legend-swatch solid"></span> Dirección ejecutiva</div>
-            <div class="legend-item"><span class="legend-swatch accent"></span> Subdirecciones</div>
-            <div class="legend-item"><span class="legend-swatch dashed"></span> Órganos deliberativos</div>
-        </div>
 
         <div class="org-chart">
 
@@ -519,10 +668,10 @@
 
             <div class="connector-v"></div>
 
-            <!-- Subdirecciones -->
+            <!-- Subdirecciones con color de la paleta oficial por tarjeta -->
             <div class="subdir-grid" role="list">
 
-                <article class="subdir-card" role="listitem">
+                <article class="subdir-card c-blue" role="listitem">
                     <div class="subdir-icon" aria-hidden="true">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
                     </div>
@@ -531,7 +680,7 @@
                     <p class="subdir-desc">Acompañamiento técnico a los establecimientos y monitoreo de procesos y resultados educativos.</p>
                 </article>
 
-                <article class="subdir-card" role="listitem">
+                <article class="subdir-card c-green" role="listitem">
                     <div class="subdir-icon" aria-hidden="true">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 4 4 5-5"/></svg>
                     </div>
@@ -540,7 +689,7 @@
                     <p class="subdir-desc">Planificación estratégica, seguimiento de metas y control de gestión institucional.</p>
                 </article>
 
-                <article class="subdir-card" role="listitem">
+                <article class="subdir-card c-yellow" role="listitem">
                     <div class="subdir-icon" aria-hidden="true">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
                     </div>
@@ -549,7 +698,7 @@
                     <p class="subdir-desc">Gestión presupuestaria, financiera, contable, de abastecimiento y servicios generales.</p>
                 </article>
 
-                <article class="subdir-card" role="listitem">
+                <article class="subdir-card c-pink" role="listitem">
                     <div class="subdir-icon" aria-hidden="true">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
@@ -558,7 +707,7 @@
                     <p class="subdir-desc">Selección, desarrollo, bienestar y formación del capital humano del Servicio Local.</p>
                 </article>
 
-                <article class="subdir-card" role="listitem">
+                <article class="subdir-card c-red" role="listitem">
                     <div class="subdir-icon" aria-hidden="true">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M14 9h1"/><path d="M14 13h1"/><path d="M9 17h6"/></svg>
                     </div>
@@ -571,11 +720,39 @@
         </div>
     </section>
 
+    <!-- ============== TERRITORIO ============== -->
+    <section class="territory" id="comunas">
+        <div class="territory-inner">
+            <div class="territory-eyebrow">Territorio</div>
+            <h2 class="territory-title">Comunas que atiende el Servicio Local</h2>
+            <div class="comunas-row">
+                <span class="comuna-chip c1">Concón</span>
+                <span class="comuna-chip c2">Puchuncaví</span>
+                <span class="comuna-chip c3">Quintero</span>
+                <span class="comuna-chip c4">Viña del Mar</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== FOOTER ============== -->
     <footer>
-        <p>
-            Servicio Local de Educación Pública Costa Central &middot;
-            Concón &middot; Puchuncaví &middot; Quintero &middot; Viña del Mar
-        </p>
+        <div class="foot-rainbow"></div>
+        <div class="foot-mark">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M50 8a42 42 0 1 0 29 72l-14-14a22 22 0 1 1 0-32l14-14A42 42 0 0 0 50 8z" fill="#ffffff"/>
+                <path d="M50 8A42 42 0 0 0 13 28l18 11a22 22 0 0 1 19-11z" fill="#90d039"/>
+                <path d="M79 22L65 36a22 22 0 0 1 5 8l19-6a42 42 0 0 0-10-16z" fill="#f8d63c"/>
+                <path d="M89 38l-19 6a22 22 0 0 1 0 12l19 6a42 42 0 0 0 0-24z" fill="#1f84ec"/>
+                <path d="M13 28a42 42 0 0 0-5 22h22a22 22 0 0 1 1-11z" fill="#ff3c4c"/>
+                <path d="M8 50a42 42 0 0 0 5 22l18-11a22 22 0 0 1-1-11z" fill="#ff798a"/>
+                <circle cx="50" cy="50" r="14" fill="#282828"/>
+            </svg>
+            <div class="foot-mark-text">
+                <div class="foot-mark-top">Servicio Local de Educación Pública</div>
+                <div class="foot-mark-bot">Costa Central</div>
+            </div>
+        </div>
+        <p>Concón &middot; Puchuncaví &middot; Quintero &middot; Viña del Mar</p>
         <p>Organigrama institucional &middot; <a href="https://slepcostacentral.gob.cl" target="_blank" rel="noopener">slepcostacentral.gob.cl</a></p>
     </footer>
 
