@@ -251,11 +251,15 @@
             position: relative;
             width: 100%;
         }
-        /* Horizontal bar connecting all 5 subdirecciones */
+        /* Horizontal bar connecting all 5 subdirecciones.
+           Span exactly from center of first column to center of last column,
+           accounting for the gap so wide viewports don't show a disconnect. */
         .subdir-grid::before {
             content: "";
             position: absolute;
-            top: 0; left: 10%; right: 10%;
+            top: 0;
+            left:  calc((100% - 4 * 16px) / 10);
+            right: calc((100% - 4 * 16px) / 10);
             height: 2px;
             background: var(--border-strong);
         }
@@ -377,6 +381,7 @@
         }
 
         .area-card {
+            position: relative;
             background: var(--surface-alt);
             border: 1px solid var(--border);
             border-left: 3px solid var(--card-accent);
@@ -385,6 +390,7 @@
             transition: .2s;
         }
         .area-card:hover {
+            z-index: 2;
             background: var(--surface);
             border-color: var(--card-accent);
             transform: translateX(2px);
@@ -430,7 +436,10 @@
                 grid-template-columns: repeat(3, 1fr);
                 row-gap: 64px;
             }
-            .subdir-grid::before { left: 16%; right: 16%; }
+            .subdir-grid::before {
+                left:  calc((100% - 2 * 16px) / 6);
+                right: calc((100% - 2 * 16px) / 6);
+            }
             /* Hide vertical drop connectors on wrapped rows to avoid overlap with row above */
             .subdir-grid > .subdir-col:nth-child(n+4)::before { display: none; }
         }
@@ -465,7 +474,10 @@
             .chart-wrap { padding: 0 20px 70px; }
             .director-card { padding: 28px 28px; }
             .subdir-grid { grid-template-columns: 1fr 1fr; row-gap: 56px; }
-            .subdir-grid::before { left: 25%; right: 25%; }
+            .subdir-grid::before {
+                left:  calc((100% - 16px) / 4);
+                right: calc((100% - 16px) / 4);
+            }
             .subdir-grid > .subdir-col:nth-child(n+3)::before { display: none; }
         }
         @media (max-width: 480px) {
