@@ -37,6 +37,10 @@
             --radius-md: 14px;
             --radius-lg: 20px;
             --font: 'Nunito', system-ui, sans-serif;
+
+            /* Single source of truth for the grid gap; both gap and the
+               connector-bar calc() expressions deben referenciarlo. */
+            --grid-gap: 16px;
         }
 
         * { box-sizing: border-box; }
@@ -246,7 +250,7 @@
         .subdir-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
+            gap: var(--grid-gap);
             padding-top: 40px;
             position: relative;
             width: 100%;
@@ -258,8 +262,8 @@
             content: "";
             position: absolute;
             top: 0;
-            left:  calc((100% - 4 * 16px) / 10);
-            right: calc((100% - 4 * 16px) / 10);
+            left:  calc((100% - 4 * var(--grid-gap)) / 10);
+            right: calc((100% - 4 * var(--grid-gap)) / 10);
             height: 2px;
             background: var(--border-strong);
         }
@@ -316,6 +320,11 @@
         .subdir-card:hover { transform: translateY(-3px); border-color: var(--card-accent); box-shadow: var(--shadow-md); }
         .subdir-card:hover::after { transform: scaleX(1); }
         .subdir-card:hover .subdir-icon { background: var(--card-accent); color: #fff; }
+        /* Focus visible for keyboard navigation */
+        .subdir-card:focus-visible {
+            outline: 2px solid var(--card-accent);
+            outline-offset: 3px;
+        }
 
         .subdir-icon {
             width: 38px; height: 38px;
@@ -437,8 +446,8 @@
                 row-gap: 64px;
             }
             .subdir-grid::before {
-                left:  calc((100% - 2 * 16px) / 6);
-                right: calc((100% - 2 * 16px) / 6);
+                left:  calc((100% - 2 * var(--grid-gap)) / 6);
+                right: calc((100% - 2 * var(--grid-gap)) / 6);
             }
             /* Hide vertical drop connectors on wrapped rows to avoid overlap with row above */
             .subdir-grid > .subdir-col:nth-child(n+4)::before { display: none; }
@@ -475,8 +484,8 @@
             .director-card { padding: 28px 28px; }
             .subdir-grid { grid-template-columns: 1fr 1fr; row-gap: 56px; }
             .subdir-grid::before {
-                left:  calc((100% - 16px) / 4);
-                right: calc((100% - 16px) / 4);
+                left:  calc((100% - var(--grid-gap)) / 4);
+                right: calc((100% - var(--grid-gap)) / 4);
             }
             .subdir-grid > .subdir-col:nth-child(n+3)::before { display: none; }
         }
@@ -548,7 +557,7 @@
 
                 <!-- Apoyo Técnico Pedagógico -->
                 <div class="subdir-col c-blue" role="listitem">
-                    <article class="subdir-card">
+                    <article class="subdir-card" role="button" tabindex="0" aria-expanded="false">
                         <div class="subdir-icon" aria-hidden="true">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
                         </div>
@@ -568,7 +577,7 @@
 
                 <!-- Planificación y Control de Gestión -->
                 <div class="subdir-col c-green" role="listitem">
-                    <article class="subdir-card">
+                    <article class="subdir-card" role="button" tabindex="0" aria-expanded="false">
                         <div class="subdir-icon" aria-hidden="true">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 4 4 5-5"/></svg>
                         </div>
@@ -587,7 +596,7 @@
 
                 <!-- Administración y Finanzas -->
                 <div class="subdir-col c-yellow" role="listitem">
-                    <article class="subdir-card">
+                    <article class="subdir-card" role="button" tabindex="0" aria-expanded="false">
                         <div class="subdir-icon" aria-hidden="true">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
                         </div>
@@ -606,7 +615,7 @@
 
                 <!-- Gestión y Desarrollo de las Personas -->
                 <div class="subdir-col c-pink" role="listitem">
-                    <article class="subdir-card">
+                    <article class="subdir-card" role="button" tabindex="0" aria-expanded="false">
                         <div class="subdir-icon" aria-hidden="true">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         </div>
@@ -626,7 +635,7 @@
 
                 <!-- Infraestructura y Mantenimiento -->
                 <div class="subdir-col c-red" role="listitem">
-                    <article class="subdir-card">
+                    <article class="subdir-card" role="button" tabindex="0" aria-expanded="false">
                         <div class="subdir-icon" aria-hidden="true">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M14 9h1"/><path d="M14 13h1"/><path d="M9 17h6"/></svg>
                         </div>
@@ -649,26 +658,36 @@
 
     <script>
         document.querySelectorAll('.subdir-col').forEach(col => col.classList.add('collapsed'));
+
+        const toggleSubdir = card => {
+            const col = card.closest('.subdir-col');
+            const al  = col.querySelector('.area-list');
+            const isCollapsed = col.classList.contains('collapsed');
+            card.setAttribute('aria-expanded', String(isCollapsed));
+            if (isCollapsed) {
+                // Expanding: keep overflow hidden during the max-height transition,
+                // then release it so hover effects (translate, shadow) aren't clipped.
+                al.style.overflow = 'hidden';
+                col.classList.remove('collapsed');
+                const onEnd = e => {
+                    if (e.propertyName !== 'max-height') return;
+                    al.style.overflow = 'visible';
+                    al.removeEventListener('transitionend', onEnd);
+                };
+                al.addEventListener('transitionend', onEnd);
+            } else {
+                // Collapsing: restore overflow hidden before animating back to 0.
+                al.style.overflow = 'hidden';
+                col.classList.add('collapsed');
+            }
+        };
+
         document.querySelectorAll('.subdir-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const col = card.closest('.subdir-col');
-                const al  = col.querySelector('.area-list');
-                const isCollapsed = col.classList.contains('collapsed');
-                if (isCollapsed) {
-                    // Expanding: keep overflow hidden during the max-height transition,
-                    // then release it so hover effects (translate, shadow) aren't clipped.
-                    al.style.overflow = 'hidden';
-                    col.classList.remove('collapsed');
-                    const onEnd = e => {
-                        if (e.propertyName !== 'max-height') return;
-                        al.style.overflow = 'visible';
-                        al.removeEventListener('transitionend', onEnd);
-                    };
-                    al.addEventListener('transitionend', onEnd);
-                } else {
-                    // Collapsing: restore overflow hidden before animating back to 0.
-                    al.style.overflow = 'hidden';
-                    col.classList.add('collapsed');
+            card.addEventListener('click', () => toggleSubdir(card));
+            card.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleSubdir(card);
                 }
             });
         });
