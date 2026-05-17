@@ -397,10 +397,42 @@
             line-height: 1.3;
         }
 
+        /* ── DESCRIPTIONS (subdirecciones y áreas) ──
+           Placeholders vacíos viven en cada tarjeta. Si no tienen texto,
+           se ocultan con :empty. Para activarlos, basta con escribir el
+           contenido entre las etiquetas <p class="subdir-desc">…</p>
+           o <p class="area-desc">…</p>. */
+        .subdir-desc {
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0 0 4px;
+            padding: 10px 12px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--card-accent);
+            border-radius: var(--radius-sm);
+        }
+        .area-desc {
+            font-size: .68rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin: 4px 0 0;
+        }
+        .subdir-desc:empty,
+        .area-desc:empty { display: none; }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 1100px) {
-            .subdir-grid { grid-template-columns: repeat(3, 1fr); }
+            .subdir-grid {
+                grid-template-columns: repeat(3, 1fr);
+                row-gap: 64px;
+            }
             .subdir-grid::before { left: 16%; right: 16%; }
+            /* Hide vertical drop connectors on wrapped rows to avoid overlap with row above */
+            .subdir-grid > .subdir-col:nth-child(n+4)::before { display: none; }
         }
         @media (max-width: 860px) {
             .middle-section {
@@ -432,8 +464,9 @@
             .hero { padding: 32px 20px 24px; }
             .chart-wrap { padding: 0 20px 70px; }
             .director-card { padding: 28px 28px; }
-            .subdir-grid { grid-template-columns: 1fr 1fr; }
+            .subdir-grid { grid-template-columns: 1fr 1fr; row-gap: 56px; }
             .subdir-grid::before { left: 25%; right: 25%; }
+            .subdir-grid > .subdir-col:nth-child(n+3)::before { display: none; }
         }
         @media (max-width: 480px) {
             .subdir-grid { grid-template-columns: 1fr; }
@@ -513,11 +546,11 @@
                             <svg class="toggle-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                         </div>
                     </article>
-                    <div class="area-list">
-                        <div class="area-card"><div class="area-name">Mejora Continua y Acompañamiento Técnico Pedagógico EE - JI</div></div>
-                        <div class="area-card"><div class="area-name">Programas, Inclusión, Convivencia y Apoyo Psicosocial</div></div>
-                        <div class="area-card"><div class="area-name">Formación y Desarrollo Profesional de los Establecimientos Educacionales</div></div>
-                        <div class="area-card"><div class="area-name">Monitoreo y Seguimiento de Procesos y Resultados Educativos</div></div>
+                    <div class="area-list"><p class="subdir-desc"></p>
+                        <div class="area-card"><div class="area-name">Mejora Continua y Acompañamiento Técnico Pedagógico EE - JI</div><p class="area-desc"></p></div>
+                        <div class="area-card"><div class="area-name">Programas, Inclusión, Convivencia y Apoyo Psicosocial</div><p class="area-desc"></p></div>
+                        <div class="area-card"><div class="area-name">Formación y Desarrollo Profesional de los Establecimientos Educacionales</div><p class="area-desc"></p></div>
+                        <div class="area-card"><div class="area-name">Monitoreo y Seguimiento de Procesos y Resultados Educativos</div><p class="area-desc"></p></div>
                     </div>
                 </div>
 
@@ -533,10 +566,10 @@
                             <svg class="toggle-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                         </div>
                     </article>
-                    <div class="area-list">
-                        <div class="area-card"><div class="area-name">Planificación y Gestión</div></div>
-                        <div class="area-card"><div class="area-name">Estudios Prospectivos, Diseño y Evaluación de Proyectos de Inversión</div></div>
-                        <div class="area-card"><div class="area-name">Desarrollo y Soporte de Tecnologías de Información</div></div>
+                    <div class="area-list"><p class="subdir-desc"></p>
+                        <div class="area-card"><div class="area-name">Planificación y Gestión</div><p class="area-desc"></p></div>
+                        <div class="area-card"><div class="area-name">Estudios Prospectivos, Diseño y Evaluación de Proyectos de Inversión</div><p class="area-desc"></p></div>
+                        <div class="area-card"><div class="area-name">Desarrollo y Soporte de Tecnologías de Información</div><p class="area-desc"></p></div>
                     </div>
                 </div>
 
@@ -552,10 +585,10 @@
                             <svg class="toggle-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                         </div>
                     </article>
-                    <div class="area-list">
-                        <div class="area-card"><div class="area-name">Finanzas</div></div>
-                        <div class="area-card"><div class="area-name">Compras y Logística</div></div>
-                        <div class="area-card"><div class="area-name">Presupuesto</div></div>
+                    <div class="area-list"><p class="subdir-desc"></p>
+                        <div class="area-card"><div class="area-name">Finanzas</div><p class="area-desc"></p></div>
+                        <div class="area-card"><div class="area-name">Compras y Logística</div><p class="area-desc"></p></div>
+                        <div class="area-card"><div class="area-name">Presupuesto</div><p class="area-desc"></p></div>
                     </div>
                 </div>
 
@@ -571,11 +604,11 @@
                             <svg class="toggle-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                         </div>
                     </article>
-                    <div class="area-list">
-                        <div class="area-card"><div class="area-name">Procesos Administrativos de Gestión de Personas</div></div>
-                        <div class="area-card"><div class="area-name">Remuneraciones</div></div>
-                        <div class="area-card"><div class="area-name">Formación y Desarrollo Organizacional</div></div>
-                        <div class="area-card"><div class="area-name">Prevención de Riesgos</div></div>
+                    <div class="area-list"><p class="subdir-desc"></p>
+                        <div class="area-card"><div class="area-name">Procesos Administrativos de Gestión de Personas</div><p class="area-desc"></p></div>
+                        <div class="area-card"><div class="area-name">Remuneraciones</div><p class="area-desc"></p></div>
+                        <div class="area-card"><div class="area-name">Formación y Desarrollo Organizacional</div><p class="area-desc"></p></div>
+                        <div class="area-card"><div class="area-name">Prevención de Riesgos</div><p class="area-desc"></p></div>
                     </div>
                 </div>
 
@@ -591,10 +624,10 @@
                             <svg class="toggle-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                         </div>
                     </article>
-                    <div class="area-list">
-                        <div class="area-card"><div class="area-name">Diseño y Seguimiento de Proyectos de Infraestructura y Mantenimiento</div></div>
-                        <div class="area-card"><div class="area-name">Ejecución de Proyectos de Infraestructura</div></div>
-                        <div class="area-card"><div class="area-name">Ejecución de Proyectos de Mantenimiento</div></div>
+                    <div class="area-list"><p class="subdir-desc"></p>
+                        <div class="area-card"><div class="area-name">Diseño y Seguimiento de Proyectos de Infraestructura y Mantenimiento</div><p class="area-desc"></p></div>
+                        <div class="area-card"><div class="area-name">Ejecución de Proyectos de Infraestructura</div><p class="area-desc"></p></div>
+                        <div class="area-card"><div class="area-name">Ejecución de Proyectos de Mantenimiento</div><p class="area-desc"></p></div>
                     </div>
                 </div>
 
