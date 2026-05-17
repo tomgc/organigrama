@@ -650,7 +650,27 @@
     <script>
         document.querySelectorAll('.subdir-col').forEach(col => col.classList.add('collapsed'));
         document.querySelectorAll('.subdir-card').forEach(card => {
-            card.addEventListener('click', () => card.closest('.subdir-col').classList.toggle('collapsed'));
+            card.addEventListener('click', () => {
+                const col = card.closest('.subdir-col');
+                const al  = col.querySelector('.area-list');
+                const isCollapsed = col.classList.contains('collapsed');
+                if (isCollapsed) {
+                    // Expanding: keep overflow hidden during the max-height transition,
+                    // then release it so hover effects (translate, shadow) aren't clipped.
+                    al.style.overflow = 'hidden';
+                    col.classList.remove('collapsed');
+                    const onEnd = e => {
+                        if (e.propertyName !== 'max-height') return;
+                        al.style.overflow = 'visible';
+                        al.removeEventListener('transitionend', onEnd);
+                    };
+                    al.addEventListener('transitionend', onEnd);
+                } else {
+                    // Collapsing: restore overflow hidden before animating back to 0.
+                    al.style.overflow = 'hidden';
+                    col.classList.add('collapsed');
+                }
+            });
         });
     </script>
 
